@@ -209,6 +209,14 @@ ALTER TABLE `subscriber`
   ADD CONSTRAINT `subscriber_ibfk_2` FOREIGN KEY (`subscriber_parking_id`) REFERENCES `parking` (`parking_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `subscriber_ibfk_3` FOREIGN KEY (`subscriber_vehicle_id`) REFERENCES `vehicle` (`vehicle_id`) ON DELETE CASCADE;
 COMMIT;
+--
+-- Inserts για user
+--INSERT INTO user (id,username,surname,name,password,email,vehicle_id)
+VALUES('001','NikolakisN','Nikolaou','Nikos','1234567a','nikosnik@hotmail.com','AXN125'),
+('002','ElenakiG','Georgiou','Eleni','1234567b','elenigeo@gmail.com','ABZ347'),
+('003','Bioagg','Bill','Aggelopoulos','pousairebio','bioagg@gmail.com','BKP869'),
+('004','Tsampikos','Alexis','Tsampas','tsabahmanas','alextsp@gmail.com','EMT346');
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
