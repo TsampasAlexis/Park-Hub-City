@@ -31,10 +31,10 @@ CREATE TABLE `e_tickets` (
   `user_id` varchar(25) NOT NULL,
   `price` int(200) NOT NULL,
   `parking_id` varchar(20) NOT NULL,
-  `type_vehicle` enum('car','mootorbike') NOT NULL,
+  `space_type` varchar(25) NOT NULL,
   `vehicle_id` int(20) NOT NULL,
   `time` date NOT NULL,
-  `type_space` int(20) NOT NULL,
+  `type_vehicle` enum('car','motorbike') NOT NULL,
   `space_name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -73,9 +73,9 @@ CREATE TABLE `one_take_customer` (
 
 CREATE TABLE `parking` (
   `parking_id` varchar(25) NOT NULL,
+  `parking_name` varchar(35) NOT NULL,
   `address` varchar(35) NOT NULL,
-  `floors` int(10) NOT NULL,
-  `number_spaces` int(100) NOT NULL
+  `num_of_spaces` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -114,7 +114,7 @@ CREATE TABLE `subscriber` (
 --
 
 CREATE TABLE `user` (
-  `id` varchar(25) NOT NULL,
+  `user_id` varchar(25) NOT NULL,
   `username` varchar(25) NOT NULL,
   `surname` varchar(25) NOT NULL,
   `name` varchar(20) NOT NULL,
@@ -211,11 +211,21 @@ ALTER TABLE `subscriber`
 COMMIT;
 --
 -- Inserts για user
---INSERT INTO user (id,username,surname,name,password,email,vehicle_id)
-VALUES('001','NikolakisN','Nikolaou','Nikos','1234567a','nikosnik@hotmail.com','AXN125'),
-('002','ElenakiG','Georgiou','Eleni','1234567b','elenigeo@gmail.com','ABZ347'),
-('003','Bioagg','Bill','Aggelopoulos','pousairebio','bioagg@gmail.com','BKP869'),
-('004','Tsampikos','Alexis','Tsampas','tsabahmanas','alextsp@gmail.com','EMT346');
+--
+INSERT INTO user (user_id,username,surname,name,password,email,vehicle_id)
+VALUES('U001','NikolakisN','Nikolaou','Nikos','1234567a','nikosnik@hotmail.com','AXN125'),
+('U002','ElenakiG','Georgiou','Eleni','1234567b','elenigeo@gmail.com','ABZ347'),
+('U003','Bioagg','Bill','Aggelopoulos','pousairebio','bioagg@gmail.com','BKP869'),
+('U004','Tsampikos','Alexis','Tsampas','tsabahmanas','alextsp@gmail.com','EMT346');
+
+--
+--Insterts για Parking
+--
+INSERT INTO parking (parking_id,parking_name,address,num_of_spaces)
+VALUES ('P001','AutoParkingPatras','Gerokostoupolou12','100'),
+('P002','PatrasParking','IwannouVlachou5','100'),
+('P003','Otopark','Korinthou431','50'),
+('P004','Karaiskaki&Kolokotroni','Karaiskaki71','150');
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
